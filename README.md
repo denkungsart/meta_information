@@ -1,28 +1,24 @@
 # MetaInformation
-Short description and motivation.
+This allows to save meta information for models.
+This is mainly useful for lengthy API responses, which you don't want to save along with the rest of your model (eg. for performance concerns).
 
 ## Usage
-How to use my plugin.
-
-## Installation
-Add this line to your application's Gemfile:
+The plugin adds a `meta_information`-method to all activerecord classes.
 
 ```ruby
-gem 'meta_information'
+class Video < ApplicationRecord
+  meta_information :transcoder_response
+end
 ```
 
-And then execute:
-```bash
-$ bundle
+This allows you to do:
+
+```ruby
+video.transcoder_response = { "job_id" => "XXX" }
+video.transcoder_response # { "job_id" => "XXX", ... }
 ```
 
-Or install it yourself as:
-```bash
-$ gem install meta_information
-```
-
-## Contributing
-Contribution directions go here.
+The information is serialized as JSON.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

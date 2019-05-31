@@ -6,13 +6,13 @@ class MetaInformation::Test < ActiveSupport::TestCase
     post.source_data = { title: "Performance improvements and more" }
     post.save!
 
-    assert_equal post.source_data, "{:title=>\"Performance improvements and more\"}"
+    assert_equal({ "title" => "Performance improvements and more" }, post.source_data)
   end
 
   test "allows accessing data of new records" do
     post = Post.new
     post.source_data = { title: "Performance improvements and more" }
-    assert_equal post.source_data, "{:title=>\"Performance improvements and more\"}"
+    assert_equal({ "title" => "Performance improvements and more" }, post.source_data)
   end
 
   test "saves only after the model was saved" do
@@ -43,6 +43,6 @@ class MetaInformation::Test < ActiveSupport::TestCase
     post.source_data = { title: "Changed" }
     post.save!
 
-    assert_equal post.reload.source_data, "{:title=>\"Changed\"}"
+    assert_equal({ "title" => "Changed" }, post.reload.source_data)
   end
 end
