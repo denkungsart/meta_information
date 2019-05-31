@@ -45,4 +45,19 @@ class MetaInformation::Test < ActiveSupport::TestCase
 
     assert_equal({ "title" => "Changed" }, post.reload.source_data)
   end
+
+  test "it updates meta information for new records" do
+    post = Post.create!(source_data: { title: "Performance improvements and more" })
+    post.source_data = { title: "Changed" }
+
+    assert_equal({ "title" => "Changed" }, post.source_data)
+  end
+
+  test "it removes meta information along with the parent" do
+    post = Post.create!(source_data: { title: "Performance improvements and more" })
+    meta_information = post.source_data_content
+
+    post.destroy!
+    assert_raises(ActiveRecord::RecordNotFound) { meta_information.reload }
+  end
 end

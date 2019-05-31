@@ -13,7 +13,7 @@ module MetaInformation
         end
 
         define_method("#{name}=") do |data|
-          if data.present?
+          if data
             model = send(assoc_name) || send("build_#{assoc_name}")
             model.data = data
           else
