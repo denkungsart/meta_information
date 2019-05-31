@@ -9,7 +9,4 @@ require "rails/test_help"
 Minitest.backtrace_filter = Minitest::BacktraceFilter.new
 
 Combustion.path = "test/internal"
-Combustion.initialize! :all do
-  # Silence sqlite3 deprecation warnings
-  config.active_record.sqlite3.represent_boolean_as_integer = true
-end
+Combustion.initialize! :all
