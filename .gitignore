@@ -9,3 +9,4 @@ test/internal/node_modules/
 test/internal/yarn-error.log
 test/internal/storage/
 test/internal/tmp/
+Gemfile.lock
