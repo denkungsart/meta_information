@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/denkungsart/meta_information.svg?branch=master)](https://travis-ci.org/denkungsart/meta_information)
+
 # MetaInformation
 This allows to save meta information for models.
 This is mainly useful for lengthy API responses, which you don't want to save along with the rest of your model (eg. for performance concerns).
