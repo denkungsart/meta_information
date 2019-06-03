@@ -22,5 +22,9 @@ video.transcoder_response # { "job_id" => "XXX", ... }
 
 The information is serialized as JSON.
 
+## Changelog
+### 0.1.0 (2019-06-03)
+* initial release
+
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
